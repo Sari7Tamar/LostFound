@@ -1,0 +1,14 @@
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+#main{
+ height:600px; 
+ width:300px;
+ margin-top:10%; 
+ margin-left:35%;
+ 
+}
+.form-control{
+  padding: 5px 10px;
+  margin: 10px;
+}

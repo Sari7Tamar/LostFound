@@ -1,0 +1,117 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+  integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+  integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+
+
+
+<!-- להכניס תמונה -->
+<!-- <form>
+    <div class="form-group"> -->
+<!-- <label for="exampleFormControlFile1">Example file input</label> -->
+<!-- <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName="image">
+    </div>
+  </form> -->
+
+
+<div id="main" dir="rtl">
+  <form [formGroup]="lfDetailsForm">
+    <br>
+    <div class="form-group">
+      <label for="description" *ngIf="typeLF==1">מה איבדת?</label>
+      <label for="description" *ngIf="typeLF==2">מה מצאת?</label>
+      <input type="text" class="form-control" id="description" placeholder="תיאור הפריט" formControlName="description">
+    </div>
+
+    <div class="form-group">
+      <label for="date" *ngIf="typeLF==1">מתי איבדת?</label>
+      <label for="date" *ngIf="typeLF==2">מתי מצאת?</label>
+      <!-- <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker"  formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      *ngIf="==null"
+    </mat-form-field> -->
+      <input *ngIf="id==0" type="date" class="form-control" id="date" formControlName='date'>
+      <input *ngIf="id!=0" type="text" class="form-control" id="date" formControlName='date'>
+    </div>
+
+    <div class="form-group">
+      <label for="place" *ngIf="typeLF==1">איפה איבדת?</label>
+      <label for="place" *ngIf="typeLF==2">איפה מצאת?</label>
+      <div>
+        <mat-radio-group formControlName="place" class="form-control" aria-label="בחר מיקום">
+          <mat-radio-button  value="1">מיקום</mat-radio-button>
+          <mat-radio-button  value="2">תחבורה ציבורית</mat-radio-button>
+          <mat-radio-button  value="3">לא ידוע</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div *ngIf="lfDetailsForm.controls['place'].value==1">
+
+        <div class="form-group">
+          <label for="city"> עיר</label>
+
+          <select id="inputState" class="form-control" id="city" formControlName="city">
+            <option selected>Choose...</option>
+            <option>...</option>
+            <option>jerusalem</option>
+            <!-- להכניס API ערים -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="street"> רחוב</label>
+          <select id="inputState" class="form-control" id="street" formControlName="street">
+            <option selected>Choose...</option>
+            <option>...</option>
+            <option>mevohabracha</option>
+            <!-- להכניס API רחובות -->
+          </select>
+        </div>
+
+        <!-- גוגל מפס -->
+      </div>
+
+      <div *ngIf="lfDetailsForm.controls['place'].value==2">
+
+        <div class="form-group">
+          <label for="busNumber"> קו אוטובוס</label>
+          <input type="text" class="form-control" id="busNumber" formControlName="busNumber">
+        </div>
+
+        <div class="form-group">
+          <label for="company"> חברה</label>
+          <select id="inputState" class="form-control" id="company" formControlName="company">
+            <option selected>אגד</option>
+            <option>קווים עילית</option>
+            <option>קווים העיכח</option>
+            <option>סופרבוס</option>
+            <option>דן</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="boardingStation"> עליתי בתחנה:</label>
+          <input type="text" class="form-control" id="boardingStation" formControlName="boardingStation">
+        </div>
+
+        <div class="form-group">
+          <label for="dropStation"> ירדתי בתחנה:</label>
+          <input type="text" class="form-control" id="dropStation" formControlName="dropStation">
+        </div>
+      </div>
+    </div>
+    <br>
+    <button *ngIf="id==0" id="save" (click)="saveLF()" class="btn btn-primary" [disabled]="isDisable">שמירה</button>
+    <button *ngIf="id!=0" (click)="deleteLF()" class="btn btn-primary" [disabled]="isDisable">מחק</button>
+    <button (click)="back()" class="btn btn-secondary">חזרה</button>
+
+  </form>
+</div>

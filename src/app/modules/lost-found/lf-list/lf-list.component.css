@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+}
+  
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+  
+/* td, th {
+    width: 20%;
+} */
+
+#des{
+    width: 100px;
+}
+
+#main{
+    height:90vh; 
+    width:750px;
+    margin-top:10%; 
+    margin-left:35%;
+    
+   }
+
+#delete{
+    height:12px; 
+    width:10px;
+}
+
+
+.deleteBtn :hover{
+    
+    background-color: rgb(211, 204, 204);
+}
+

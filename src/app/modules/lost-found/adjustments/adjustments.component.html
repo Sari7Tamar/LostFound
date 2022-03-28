@@ -1,0 +1,59 @@
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div id="main" dir="rtl">
+<div class="span7">   
+<div class="widget stacked widget-table action-table">
+    				
+    <div class="widget-header">
+        <i class="icon-th-list"></i>
+        <h3>כותרת</h3>
+    </div> <!-- /widget-header -->
+    <div class="widget-content">
+        <table  class="table table-striped table-bordered" >
+            <!-- cellspacing="0" [ADJUSTMENTS]="ADJUSTMENTS"-->
+            <thead>
+                <tr>
+                    <th>מס' התאמה</th>
+                    <th>תאור</th>
+                    <th>אחוזי התאמה</th>
+                    <th>שליחות מייל</th>
+                    <th>שיחות יוצאות</th>
+                    <th class="td-actions"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of ADJUSTMENTS; let i= index"  >
+                    <!-- (click)="showDetails(row)" -->
+                    <!-- {{getLF(row)}} -->
+                    <td>{{row.id }}</td>
+                    <td>{{MY_LF_LIST[i].lf!.description}}</td>
+                    <td>{{row.adjustmentPercentage}}</td>
+                    <td >
+                       {{row.statusEmail}}
+                        <button class="btn btn-small btn-primary" (click)="sendEmail(row)">
+                            <i class="btn-icon-only icon-ok"></i>
+                        </button>
+                    </td>
+                    <td class="td-actions">
+                        {{row.statusPhone}}
+                        <button class="btn btn-small btn-primary" (click)="call(row)">
+                            <i class="btn-icon-only icon-ok"></i>
+                        </button>
+                    </td>
+                   
+                    <td class="td-actions">
+                        <button class="btn btn-small btn-primary" (click)="deleteAdjustment(row.id)">
+                            מחק התאמה
+                            <i class="btn-icon-only icon-ok"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </div> <!-- /widget-content -->
+</div> <!-- /widget -->
+</div>
+</div>
