@@ -21,12 +21,10 @@ export class AdjustmentsComponent implements OnInit {
   lfRow?:NewLF
   ALL_LF_LIST!:NewLF[]
   MY_LF_LIST:Array<NewLF>=[]
+  dataSource!:Adjustment[]
   constructor(private _acr: ActivatedRoute,private userService:UserService, private lfService:LostFoundService, private adjustmentService:AdjustmentService, private router:Router) { }
 
   ngOnInit(): void {
-    var s=sessionStorage.getItem("user")
-    this.userService.user=JSON.parse(s!)
-
     this._acr.paramMap.subscribe(params => {
       var idParam = params.get("id");
       if (idParam && idParam != null)
@@ -46,6 +44,7 @@ export class AdjustmentsComponent implements OnInit {
             this.ADJUSTMENTS=data;
             this.ADJUSTMENTS.forEach(adj => {
              this.MY_LF_LIST.push(this.ALL_LF_LIST!.filter(f=>f.lf!.id==adj.foundId!)[0])
+             this.dataSource=this.ADJUSTMENTS
           });
           
         });
@@ -141,6 +140,7 @@ export class AdjustmentsComponent implements OnInit {
               this.MY_LF_LIST.push(this.ALL_LF_LIST!.filter(l=>l.lf!.id==adj.lostId!)[0])
             })
           }
+          this.dataSource=this.ADJUSTMENTS
         
         } )
     }

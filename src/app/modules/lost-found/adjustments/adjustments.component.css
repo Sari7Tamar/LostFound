@@ -1,3 +1,13 @@
+
+
+#main{
+    height:90vh; 
+    width:750px;
+    margin-top:10%; 
+    margin-left:35%;
+    
+   }
+   
 .table-bordered {
 border: 1px solid #dddddd;
 border-collapse: separate;

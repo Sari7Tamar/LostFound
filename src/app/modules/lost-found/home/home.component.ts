@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   lfDetails(typeLF1:TypeLF)
   {
-    if(this.userService.user==null)
+    if(this.userService.getMyUser()==null)
     {
       let dialogRef = this.dialog.open(LoginComponent, {
         height: '40vh',
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
   }
   myLF(typeLF1:TypeLF)
   {
-    if(this.userService.user==null)
+    if(this.userService.getMyUser()==null)
     {
       let dialogRef = this.dialog.open(LoginComponent, {
         height: '40vh',
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     }
     else
     {
-      this.router.navigate(['/lfList',{typeLF:typeLF1, userId:this.userService.user?.id}])
+      this.router.navigate(['/lfList',{typeLF:typeLF1, userId:this.userService.getMyUser().id}])
     }
   }
   allLF(typeLF1:TypeLF)

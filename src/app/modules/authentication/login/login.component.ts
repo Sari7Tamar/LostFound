@@ -27,13 +27,13 @@ loginForm!:FormGroup
   }
 
   login() {
+    console.log("gggggggggggg")
     this.userService.getUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).subscribe(data => {
-      this.userService.user = data
-      if (this.userService.user == null) {
+      this.userService.setMyUser(data) 
+      if (this.userService.getMyUser() == null) {
         alert("שם המשתמש או הסיסמא אינם תקינים, נסה שנית")
           return;
       }
-       sessionStorage.setItem("user", JSON.stringify(this.userService.user))
       // this.router.navigate(['/home'])
       this.dialogRef.close();
     });

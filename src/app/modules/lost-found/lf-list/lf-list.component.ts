@@ -40,9 +40,7 @@ export class LfListComponent implements OnInit, AfterViewInit {
   }
   
   ngOnInit(): void {
-    var s = sessionStorage.getItem("user")
-    this.userService.user = JSON.parse(s!)
-    this._acr.paramMap.subscribe(params => {
+      this._acr.paramMap.subscribe(params => {
       var typeLFParam = params.get("typeLF");
       if (typeLFParam && typeLFParam != null)
         this.typeLF = +typeLFParam;

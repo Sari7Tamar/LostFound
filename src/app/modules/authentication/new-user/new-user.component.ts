@@ -22,10 +22,7 @@ export class NewUserComponent implements OnInit {
 
   newUserForm!: FormGroup;
 
-
-
   isManager: boolean = false
-
 
 
   constructor(private _acr: ActivatedRoute, private userService: UserService, private router: Router, public dialogRef: MatDialogRef<LoginComponent>, public dialogRefFromHome: MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
@@ -65,8 +62,7 @@ export class NewUserComponent implements OnInit {
           return
         }
         this.userService.getUserById(user.id).subscribe(data => {
-          this.userService.user = data
-          sessionStorage.setItem("user", JSON.stringify(this.userService.user))
+          this.userService.setMyUser(data) 
 
           this.dialogRef.close();
           this.dialogRefFromHome.close();

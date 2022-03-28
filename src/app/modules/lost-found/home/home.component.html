@@ -1,12 +1,12 @@
-<h3>{{userService.user?.name}}</h3>
+<h3>{{userService.getMyUser().name}}</h3>
 <div>
     <button class="mainButton" id="loginButton" (click)="login()">  כניסה </button>
     <button class="mainButton" id="lostButton" (click)="lfDetails(1)">  איבדתי </button>
     <button class="mainButton" id="foundButton" (click)="lfDetails(2)">  מצאתי </button>
     <button class="mylfButton" id="mylostsButton" (click)="myLF(1)">   האבידות שלי </button>
     <button class="mylfButton" id="myfoundsButton" (click)="myLF(2)">  המציאות שלי </button>
-    <button class="alllfButton" id="lostsButton" (click)="allLF(1)" *ngIf="userService.user?.isManager"> כל האבידות </button>
-    <button class="alllfButton" id="foundsButton" (click)="allLF(2)" *ngIf="userService.user?.isManager">  כל המציאות </button>
-    <button class="newManager" id="newManager" (click)="newManager()" *ngIf="userService.user?.isManager">  הוספת מנהל חדש </button>
+    <button class="alllfButton" id="lostsButton" (click)="allLF(1)" *ngIf="userService.getMyUser().isManager"> כל האבידות </button>
+    <button class="alllfButton" id="foundsButton" (click)="allLF(2)" *ngIf="userService.getMyUser().isManager">  כל המציאות </button>
+    <button class="newManager" id="newManager" (click)="newManager()" *ngIf="userService.getMyUser().isManager">  הוספת מנהל חדש </button>
 </div>
 

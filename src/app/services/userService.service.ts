@@ -8,7 +8,7 @@ import { Adjustment } from "../modules/lost-found/models/adjustment.model";
 
 @Injectable()
 export class UserService {
-    public user?: User;
+    private _user?: User;
     
     constructor(private http: HttpClient) {
     }
@@ -30,5 +30,28 @@ export class UserService {
         return this.http.get<User>("/api/User/" + id);
     }
 
+
+    getMyUser(): User {
+        if(this._user==undefined)
+        {
+            let userId=JSON.parse(sessionStorage.getItem("userId")!)/3
+            if(userId!=0)
+                this.getUserById(userId).subscribe(user=>this._user=user)
+        }
+        return this._user!
+    }
+
+    setMyUser(user:User)
+    {
+        if(user!=null)
+        {
+            this._user=user
+            sessionStorage.setItem("userId",JSON.stringify(user.id*3))
+        }
+        else
+        {
+            sessionStorage.setItem("userId",JSON.stringify(0))
+        }
+    }
     
 }

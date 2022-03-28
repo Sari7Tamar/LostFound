@@ -40,9 +40,6 @@ export class LfDetailsComponent implements OnInit {
   isDisable:boolean =false
 
   ngOnInit(): void {
-    var s = sessionStorage.getItem("user")
-    this.userService.user = JSON.parse(s!)
-
     this._acr.paramMap.subscribe(params => {
       var typeLFParam = params.get("typeLF");
       if (typeLFParam && typeLFParam != null)
@@ -92,7 +89,7 @@ export class LfDetailsComponent implements OnInit {
       p = new PublicTransport(this.lfDetailsForm.controls["busNumber"].value, this.lfDetailsForm.controls["company"].value, this.lfDetailsForm.controls["boardingStation"].value, this.lfDetailsForm.controls["dropStation"].value)
     }
 
-    var lf: LostFound = new LostFound(this.lfDetailsForm.controls["description"].value, this.lfDetailsForm.controls["date"].value, this.typeLF, locationType, this.userService.user?.id)
+    var lf: LostFound = new LostFound(this.lfDetailsForm.controls["description"].value, this.lfDetailsForm.controls["date"].value, this.typeLF, locationType, this.userService.getMyUser().id)
     this.myLF = new NewLF(lf, a, p)
 
     this.LFService.postLF(this.myLF).subscribe(data => {
