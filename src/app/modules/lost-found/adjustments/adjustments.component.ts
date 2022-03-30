@@ -92,7 +92,7 @@ export class AdjustmentsComponent implements OnInit {
       {
         if(succeed==1)
         {
-          alert("נשלח בהצלחה!")
+          alert("נשלח  sfasfgadgda!")
           //row.incStatusMail()
           //this.ADJUSTMENTS[index]=row
           this.adjustmentService.getAdjustments(this.LFId)////hgyuhouijkugyjmuhkuf,
