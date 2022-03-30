@@ -95,7 +95,7 @@ export class AdjustmentsComponent implements OnInit {
           alert("נשלח בהצלחה!")
           //row.incStatusMail()
           //this.ADJUSTMENTS[index]=row
-          this.adjustmentService.getAdjustments(this.LFId)////hgyuhoui
+          this.adjustmentService.getAdjustments(this.LFId)////hgyuhouijkugyjmuhkuf,
           //לעדכן רשימה בסרבר ולהביא לקליינט
         }
         else
