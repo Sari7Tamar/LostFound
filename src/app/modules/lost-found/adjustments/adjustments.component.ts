@@ -99,7 +99,7 @@ export class AdjustmentsComponent implements OnInit {
           //לעדכן רשימה בסרבר ולהביא לקליינט
         }
         else
-          alert("השליחה לא הצליחה")
+          alert("השליחה לא הצליחה");//ghghg
       })
     
   }
