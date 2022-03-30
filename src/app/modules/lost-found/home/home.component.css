@@ -1,0 +1,19 @@
+.mainButton{
+    top: 50%
+}
+
+.mylfButton{
+    top: 70%
+}
+
+.alllfButton{
+    top: 85%
+}
+
+#lostButton{
+    right:30%
+}
+
+#foundButton{
+    left:30%
+}

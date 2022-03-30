@@ -1,0 +1,62 @@
+<!-- <form [formGroup]="newUserForm">
+    שם: <input id="name" type="text" formControlName="name" ><br/>
+    סיסמא: <input id="password" type="password" formControlName="password" ><br/>
+    אימות סיסמא:<input id="repassword" type="password" formControlName="repassword" ><br/>
+    מייל: <input id="email" type="text" formControlName="email" ><br/>
+    טלפון: <input id="fhone" type="text" formControlName="fhone" ><br/>
+    <button (click)="signin()">הרשם</button>
+    <button (click)="back()">חזרה</button>
+</form> -->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- Include the above in your HEAD tag -->
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
+<div class="main">
+    
+    
+    <div  class="container">
+<section>
+<div class="middle" mat-dialog-content>
+      <div id="login" >
+
+        <form action="javascript:void(0);" method="get"  [formGroup]="newUserForm">
+
+          <fieldset class="clearfix">
+            
+            <p ><span class="fa fa-envelope"></span><input type="text"  Placeholder="כתובת מייל" required formControlName="email"></p> <!-- JS because of IE support; better: placeholder="Username" -->
+            <p><span class="fa fa-lock"></span><input type="password"  Placeholder="סיסמה" required formControlName="password"></p> <!-- JS because of IE support; better: placeholder="Password" -->
+            <p><span class="fa fa-lock"></span><input type="password"  Placeholder="אימות סיסמה" required formControlName="repassword"></p> <!-- JS because of IE support; better: placeholder="Password" -->
+            <p><span class="fa fa-user"></span><input type="text"  Placeholder="שם" required formControlName="name"></p> <!-- JS because of IE support; better: placeholder="Username" -->
+            <p><span class="fa fa-phone"></span><input type="text"  Placeholder="טלפון" required formControlName="fhone" ></p> <!-- JS because of IE support; better: placeholder="Password" -->
+            <!-- <div *ngIf="newUserForm.controls['email'].errors?.required " class="alert alert-danger">מספר טלפון לא תקין</div> -->
+            <!-- *ngIf="taskForm.controls['name'].errors?.minlength" class="alert alert-danger -->
+             <div>
+                    <span style="width:50%; text-align:left;  display: inline-block;"><input (click)="back()" type="submit" value="חזרה"></span> 
+                    <span style="width:50%; text-align:right;  display: inline-block;"><input  (click)="signin()" type="submit" value="הרשם"></span>
+             </div>
+            
+          </fieldset>
+<div class="clearfix"></div>
+        </form>
+
+        <div class="clearfix"></div>
+ <!-- end login -->
+      </div> 
+      <div class="logo">
+        <img id="imglogo" src="\assets\p1.jpg">  
+          <div class="clearfix"> </div>
+      </div>
+      
+      </div>
+</section>
+    </div>
+
+</div>
